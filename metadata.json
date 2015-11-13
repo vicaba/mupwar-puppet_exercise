@@ -1,0 +1,34 @@
+{
+      "name": "deploying",
+      "version": "0.1.0",
+      "author": "Pat",
+      "license": "Apache-2.0",
+      "summary": "A module for a thing",
+      "source": "https://github.com/examplecorp/examplecorp-mymodule",
+      "project_page": "https://github.com/examplecorp/examplecorp-mymodule",
+      "issues_url": "https://github.com/examplecorp/examplecorp-mymodules/issues",
+      "tags": ["things", "stuff"],
+      "operatingsystem_support": [
+        {
+          "operatingsystem":"RedHat",
+          "operatingsystemrelease": [
+            "5.0",
+            "6.0"
+          ]
+        },
+        {
+          "operatingsystem": "Ubuntu",
+          "operatingsystemrelease": [
+            "12.04",
+            "10.04"
+         ]
+        }
+      ],
+      "dependencies": [
+        { "name": "example42/php", "version_requirement": "== 2.0.25" },
+        { "name": "puppetlabs/apache", "version_requirement": "== 1.6.0" },
+        { "name": "puppetlabs-mysql", "version_requirement": "== 3.6.1" },
+        { "name": "stahnma-epel", "version_requirement": "== 1.1.1" },
+        { "name": "saz-memcached", "version_requirement": "==  2.8.1" },
+      ]
+    }
