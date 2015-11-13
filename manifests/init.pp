@@ -4,8 +4,8 @@ class deploying {
 		ensure => 'directory',
 		path => '/var/www/',
 		mode => '1777',
-		owner => 'root',
-		group => 'root',
+		owner => 'vagrant',
+		group => 'vagrant',
 		before => Class['apache']
 	}
 
@@ -13,8 +13,8 @@ class deploying {
 		ensure => 'directory',
 		path => '/var/www/project1/',
 		mode => '1777',
-		owner => 'root',
-		group => 'root',
+		owner => 'vagrant',
+		group => 'vagrant',
 		before => Class['apache']
 	}
 
@@ -29,7 +29,7 @@ class deploying {
 	}
 
 	apache::vhost { 'project1.dev':
-		port    => '8080',
+		port    => '8081',
 		docroot => '/var/www/project1/',
 	}
 
@@ -56,8 +56,9 @@ class deploying {
 			ensure => 'file',
 			path => '/var/www/index.php',
 			mode => '1777',
-			owner => 'root',
-			group => 'root',
+			owner => 'apache',
+			group => 'apache',
+			source => 'puppet:///modules/deploying/index1.html',
 			require => File['/var/www/']
 		}
 
@@ -65,8 +66,9 @@ class deploying {
 			ensure => 'file',
 			path => '/var/www/project1/index.php',
 			mode => '1777',
-			owner => 'root',
-			group => 'root',
+			owner => 'apache',
+			group => 'apache',
+			source => 'puppet:///modules/deploying/index2.html',
 			require => File['/var/www/project1/']
 		}
 	}
@@ -74,6 +76,7 @@ class deploying {
 	include development::create_files
 
 	include epel
+	include memcached
 
 }
 
