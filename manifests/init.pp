@@ -1,4 +1,4 @@
-clearclass deploying {
+class deploying {
 
 	file {'/var/www/':
 		ensure => 'directory',
