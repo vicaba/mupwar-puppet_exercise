@@ -1,11 +1,11 @@
-class deploying {
+clearclass deploying {
 
 	file {'/var/www/':
 		ensure => 'directory',
 		path => '/var/www/',
 		mode => '1777',
-		owner => 'vagrant',
-		group => 'vagrant',
+		owner => 'root',
+		group => 'root',
 		before => Class['apache']
 	}
 
@@ -13,11 +13,10 @@ class deploying {
 		ensure => 'directory',
 		path => '/var/www/project1/',
 		mode => '1777',
-		owner => 'vagrant',
-		group => 'vagrant',
+		owner => 'root',
+		group => 'root',
 		before => Class['apache']
 	}
-
 
 	class {'apache':
 	}
